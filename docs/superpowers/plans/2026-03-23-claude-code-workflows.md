@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED: Use superpowers:subagent-driven-development (if subagents available) or superpowers:executing-plans to implement this plan. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Create three slash commands (`/code-review`, `/security-review`, `/design-review`) and two subagents that give TishApply developers one-command quality gates with no GitHub Actions required.
+**Goal:** Create three slash commands (`/code-review`, `/security-review`, `/design-review`) and two subagents that give Job Neuron developers one-command quality gates with no GitHub Actions required.
 
 **Architecture:** Five Markdown files in `.claude/commands/` and `.claude/agents/`. Slash commands are prompt files that Claude executes using tools (Bash, Write, Agent). Subagents are persona files dispatched by slash commands via the Agent tool. All output goes to `docs/reviews/`.
 
@@ -17,7 +17,7 @@
 | `.claude/commands/code-review.md` | Slash command | Run git diff, dispatch code-reviewer subagent, write report |
 | `.claude/commands/security-review.md` | Slash command | Run git diff, run self-contained OWASP analysis, write report |
 | `.claude/commands/design-review.md` | Slash command | Check dev server, dispatch design-reviewer subagent |
-| `.claude/agents/code-reviewer.md` | Subagent | 7-tier Pragmatic Quality framework with TishApply rules |
+| `.claude/agents/code-reviewer.md` | Subagent | 7-tier Pragmatic Quality framework with Job Neuron rules |
 | `.claude/agents/design-reviewer.md` | Subagent | Playwright-based visual and UX review, 7 phases |
 
 ---
@@ -66,12 +66,12 @@ Create `.claude/agents/code-reviewer.md` with this exact content:
 ````markdown
 ---
 name: code-reviewer
-description: Performs a 7-tier Pragmatic Quality code review against TishApply conventions. Receives a git diff, changed file list, and project context. Returns a structured report.
+description: Performs a 7-tier Pragmatic Quality code review against Job Neuron conventions. Receives a git diff, changed file list, and project context. Returns a structured report.
 ---
 
-You are a code reviewer for the TishApply project. You have received a git diff, a list of changed files, and project context. Evaluate the changes across seven tiers. Note failures but continue through all tiers — the full picture is needed even when earlier tiers fail.
+You are a code reviewer for the Job Neuron project. You have received a git diff, a list of changed files, and project context. Evaluate the changes across seven tiers. Note failures but continue through all tiers — the full picture is needed even when earlier tiers fail.
 
-## TishApply Project Context
+## Job Neuron Project Context
 
 - **Stack:** Vite + React SPA (no framework, no TypeScript), Netlify Functions (serverless, CommonJS), Supabase used as a KV store, Netlify Identity auth, SerpApi for jobs, Gemini AI by default
 - **Frontend files:** `src/components/` (one file per feature area), `src/lib/api.js` (API helpers), `src/lib/helpers.js` (pure utils), `src/lib/styles.jsx` (design tokens, CSS vars)
@@ -84,7 +84,7 @@ You are a code reviewer for the TishApply project. You have received a git diff,
 
 Check that logic is right, no crashes, no data loss.
 
-**TishApply rules:**
+**Job Neuron rules:**
 - KV keys must follow `jh_{entity}_{id?}` convention (e.g., `jh_apps_profileId`, `jh_jobs_profileId_2026-03-23`)
 - The `dev_` prefix must never be applied manually — only `devKeyNs()` in `db.js` may apply it
 - Profile IDs used as KV key suffixes come from the client request body — verify in context that they are scoped to the authenticated user's own profiles, not an arbitrary user's
@@ -93,7 +93,7 @@ Check that logic is right, no crashes, no data loss.
 
 Check for key exposure, auth bypass, and input sanitisation.
 
-**TishApply rules:**
+**Job Neuron rules:**
 - AI keys (`GEMINI_KEY`, `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `GROQ_API_KEY`), `SUPABASE_SERVICE_KEY`, and `SERPAPI_KEY` must never appear in `src/` or in any HTTP response body
 - Every Netlify function (non-background) must check `context.clientContext.user` before any Supabase call
 - Background functions (`*-background.js`) cannot use `clientContext` — they must parse the JWT from the `Authorization` header manually
@@ -103,7 +103,7 @@ Check for key exposure, auth bypass, and input sanitisation.
 
 Check that code is readable without needing a mental model of the whole codebase.
 
-**TishApply rules:**
+**Job Neuron rules:**
 - Inline React style objects are the correct styling pattern — no CSS classes, no Tailwind, no styled-components
 - CommonJS `require/module.exports` is correct in `netlify/functions/` (non-test files)
 - ESM `import/export` is correct in `src/`
@@ -113,7 +113,7 @@ Check that code is readable without needing a mental model of the whole codebase
 
 Check conventions are followed and the code is not over-engineered.
 
-**TishApply rules:**
+**Job Neuron rules:**
 - No new npm packages without explicit justification
 - Modals used by only one parent component (e.g., `CustomizeModal` in `Jobs.jsx`) must remain in that parent file — no export
 - `console.log` in `src/` is a violation; use `console.error` only for genuine errors in frontend code
@@ -126,17 +126,17 @@ Check for obvious regressions. No benchmarking needed — flag things that are o
 
 Check that changed logic has a corresponding test.
 
-**TishApply rules (node environment — `netlify/functions/__tests__/`):**
+**Job Neuron rules (node environment — `netlify/functions/__tests__/`):**
 - Never mock `@supabase/supabase-js` with `vi.mock()` — Vitest's mock system cannot reliably intercept CJS `require()` for third-party packages in the node environment. Test exported pure functions directly instead. Auth guard tests (returning 401 before Supabase is called) are fine.
 
-**TishApply rules (jsdom environment — `src/__tests__/`):**
+**Job Neuron rules (jsdom environment — `src/__tests__/`):**
 - Use `vi.mock('../lib/api', () => ({ dbGet: vi.fn(), dbSet: vi.fn(), callAI: vi.fn(), ... }))` to mock the API layer. The `@supabase/supabase-js` vi.mock restriction applies only to the node environment.
 
 ### Tier 7: Docs / changelog
 
 Check that user-visible changes are documented.
 
-**TishApply rules:**
+**Job Neuron rules:**
 - Any user-visible change needs an entry in `CHANGELOG.md`
 - Breaking KV key renames and new required env vars must be flagged as requiring manual migration steps
 
@@ -241,7 +241,7 @@ Capture the date string.
 Use the Agent tool to dispatch the `code-reviewer` subagent. Pass it the following as the prompt:
 
 ---
-Review the following git diff for the TishApply project.
+Review the following git diff for the Job Neuron project.
 
 **Changed files:**
 [INSERT CHANGED FILE LIST]
@@ -251,7 +251,7 @@ Review the following git diff for the TishApply project.
 [INSERT FULL DIFF]
 ```
 
-Apply all seven tiers of the Pragmatic Quality framework with TishApply-specific rules as defined in your instructions. Return the full structured report.
+Apply all seven tiers of the Pragmatic Quality framework with Job Neuron-specific rules as defined in your instructions. Return the full structured report.
 ---
 
 ### Step 5: Write the report
@@ -318,7 +318,7 @@ Create `.claude/commands/security-review.md` with this exact content:
 ````markdown
 # /security-review
 
-Run an OWASP-aligned security review on all changes since `main`, focused on TishApply's specific attack surface.
+Run an OWASP-aligned security review on all changes since `main`, focused on Job Neuron's specific attack surface.
 
 ## Instructions
 
@@ -342,7 +342,7 @@ date +%Y-%m-%d
 
 ### Step 3: Run the security analysis
 
-Analyse the diff against the TishApply attack surface below. Work through each category. Be precise — cite the exact file and line where a finding occurs.
+Analyse the diff against the Job Neuron attack surface below. Work through each category. Be precise — cite the exact file and line where a finding occurs.
 
 #### Attack Surface
 
@@ -435,20 +435,20 @@ Create `.claude/agents/design-reviewer.md` with this exact content:
 ````markdown
 ---
 name: design-reviewer
-description: Performs a visual and UX review of the TishApply app using Playwright. Receives a list of changed component filenames. Navigates the live app at http://localhost:9000 and produces a structured report with screenshots.
+description: Performs a visual and UX review of the Job Neuron app using Playwright. Receives a list of changed component filenames. Navigates the live app at http://localhost:9000 and produces a structured report with screenshots.
 ---
 
-You are a design reviewer for the TishApply project. You have received a list of changed component files. Use the Playwright MCP tools to navigate the live app and review it for visual correctness, responsive layout, Catppuccin theme compliance, and accessibility.
+You are a design reviewer for the Job Neuron project. You have received a list of changed component files. Use the Playwright MCP tools to navigate the live app and review it for visual correctness, responsive layout, Catppuccin theme compliance, and accessibility.
 
 ## Prerequisites
 
 - The app is running at `http://localhost:9000`
 - The developer is already logged in (you will not attempt to log in)
-- If you encounter the login screen at any phase, stop and report: "Auth gate encountered — please log in to TishApply then re-run /design-review."
+- If you encounter the login screen at any phase, stop and report: "Auth gate encountered — please log in to Job Neuron then re-run /design-review."
 
-## TishApply Navigation Map
+## Job Neuron Navigation Map
 
-TishApply is a single-page app — there are no URL routes. Navigate between views by clicking sidebar items.
+Job Neuron is a single-page app — there are no URL routes. Navigate between views by clicking sidebar items.
 
 | Component file | How to navigate |
 |---|---|
@@ -474,7 +474,7 @@ TishApply is a single-page app — there are no URL routes. Navigate between vie
 
 1. Use `browser_navigate` to go to `http://localhost:9000`
 2. Use `browser_snapshot` to capture the page state
-3. If the snapshot contains a login form or "Sign in" / "Log in" button: stop and output "Auth gate encountered — please log in to TishApply then re-run /design-review."
+3. If the snapshot contains a login form or "Sign in" / "Log in" button: stop and output "Auth gate encountered — please log in to Job Neuron then re-run /design-review."
 
 ### Phase 1 — Baseline
 
@@ -604,9 +604,9 @@ Create `.claude/commands/design-review.md` with this exact content:
 ````markdown
 # /design-review
 
-Run a visual and UX review of the TishApply app using Playwright. Reviews responsive layout, Catppuccin theme compliance, and accessibility for all components changed since `main`.
+Run a visual and UX review of the Job Neuron app using Playwright. Reviews responsive layout, Catppuccin theme compliance, and accessibility for all components changed since `main`.
 
-**Prerequisite:** The dev server must be running (`npm run dev`) and you must be logged in to TishApply in the browser before running this command.
+**Prerequisite:** The dev server must be running (`npm run dev`) and you must be logged in to Job Neuron in the browser before running this command.
 
 ## Instructions
 
@@ -640,7 +640,7 @@ date +%Y-%m-%d
 Use the Agent tool to dispatch the `design-reviewer` subagent. Pass it the following as the prompt:
 
 ---
-Review the TishApply app running at http://localhost:9000.
+Review the Job Neuron app running at http://localhost:9000.
 
 **Today's date:** [INSERT DATE]
 
@@ -672,7 +672,7 @@ git commit -m "feat: add /design-review slash command"
 
 ## Task 9: Smoke test — design review
 
-**Prerequisites:** Dev server running (`npm run dev`), logged in to TishApply in the browser.
+**Prerequisites:** Dev server running (`npm run dev`), logged in to Job Neuron in the browser.
 
 - [ ] **Step 1: Start the dev server (if not already running)**
 
@@ -736,8 +736,8 @@ Add an entry at the top of `CHANGELOG.md`:
 ## [2026-03-23] — Claude Code Slash-Command Workflows
 
 ### Added
-- **`/code-review`** — 7-tier Pragmatic Quality code review against TishApply conventions; dispatches `code-reviewer` subagent; output to `docs/reviews/code-review-YYYY-MM-DD.md`
-- **`/security-review`** — OWASP-aligned security review covering TishApply's specific attack surface (JWT auth, KV cross-user access, key exposure, XSS, admin bypass); output to `docs/reviews/security-review-YYYY-MM-DD.md`
+- **`/code-review`** — 7-tier Pragmatic Quality code review against Job Neuron conventions; dispatches `code-reviewer` subagent; output to `docs/reviews/code-review-YYYY-MM-DD.md`
+- **`/security-review`** — OWASP-aligned security review covering Job Neuron's specific attack surface (JWT auth, KV cross-user access, key exposure, XSS, admin bypass); output to `docs/reviews/security-review-YYYY-MM-DD.md`
 - **`/design-review`** — Playwright-based 7-phase visual and UX review (auth check, baseline, per-view screenshots at 3 breakpoints, Catppuccin compliance, responsive layout, interactive states, accessibility); dispatches `design-reviewer` subagent; output to `docs/reviews/design-review-YYYY-MM-DD.md`
 ```
 

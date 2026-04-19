@@ -18,7 +18,7 @@ const baseProps = {
 describe('TopNav', () => {
   it('renders logo and all nav links', () => {
     render(<TopNav {...baseProps} />)
-    expect(screen.getByText('TishApply')).toBeTruthy()
+    expect(screen.getByText('Job Neuron')).toBeTruthy()
     expect(screen.getByText('Dashboard')).toBeTruthy()
     expect(screen.getByText('Resume')).toBeTruthy()
     expect(screen.getByText('Jobs')).toBeTruthy()

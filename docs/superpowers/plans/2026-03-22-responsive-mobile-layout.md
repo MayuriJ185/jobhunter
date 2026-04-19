@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED: Use superpowers:subagent-driven-development (if subagents available) or superpowers:executing-plans to implement this plan. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Add two-breakpoint responsive layout to TishApply — 64px icon rail on tablet (481–768px), bottom tab bar on phone (≤480px) — without changing the desktop experience.
+**Goal:** Add two-breakpoint responsive layout to Job Neuron — 64px icon rail on tablet (481–768px), bottom tab bar on phone (≤480px) — without changing the desktop experience.
 
 **Architecture:** A `useBreakpoint()` hook in `src/lib/hooks.js` reads `window.matchMedia` and returns `{ isMobile, isTablet }`. `MainApp` calls the hook once and passes these booleans as props down to all components that need layout changes. All layout switches are inline style conditionals; the only real CSS additions are the `sheetIn` keyframe, bottom nav background vars, and `[data-bottom-nav]` rule in `GlobalStyles`.
 
@@ -168,7 +168,7 @@ In the brand header, hide text when `isTablet`:
   </div>
   {!isTablet && (
     <div>
-      <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-main)' }}>TishApply</div>
+      <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-main)' }}>Job Neuron</div>
       <div style={{ fontSize: 10, color: 'var(--text-light)', marginTop: 1 }}>AI Job Search</div>
     </div>
   )}

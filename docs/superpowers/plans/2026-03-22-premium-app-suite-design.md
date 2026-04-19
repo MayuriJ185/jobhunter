@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED: Use superpowers:subagent-driven-development (if subagents available) or superpowers:executing-plans to implement this plan. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Redesign TishApply's full frontend into a premium SaaS aesthetic using the approved "Direction B — Premium App Suite" spec, touching 9 files with zero new dependencies.
+**Goal:** Redesign Job Neuron's full frontend into a premium SaaS aesthetic using the approved "Direction B — Premium App Suite" spec, touching 9 files with zero new dependencies.
 
 **Architecture:** All changes are purely visual — inline React style objects only, no CSS framework, no new routes or KV keys. We layer on top of the existing Catppuccin design token system, adding one new token (`--shadow-md`) and a modal keyframe animation. Each component gets a gradient hero banner, elevated cards with hover lift, and richer typography.
 
@@ -15,10 +15,10 @@
 | File | What changes |
 |---|---|
 | `src/lib/styles.jsx` | New `--shadow-md` token (light + dark), Badge `borderRadius` 6→20, `@keyframes modalIn` |
-| `src/components/Sidebar.jsx` | 240px width, TishApply branding, SVG nav icons, section labels, active accent bar, badge counts, user card footer |
+| `src/components/Sidebar.jsx` | 240px width, Job Neuron branding, SVG nav icons, section labels, active accent bar, badge counts, user card footer |
 | `src/components/MainApp.jsx` | Fetch `todayJobCount` + `openAppCount` on mount, pass to Sidebar |
 | `src/components/Dashboard.jsx` | Hero banner, elevated metric cards with accent colors, action row hover, task due chips |
-| `src/components/ProfileSelect.jsx` | Vertically centered layout, TishApply branding, card hover lift |
+| `src/components/ProfileSelect.jsx` | Vertically centered layout, Job Neuron branding, card hover lift |
 | `src/components/Jobs.jsx` | Hero banner, status-tinted card left border, company avatar circle, hover lift |
 | `src/components/Applications.jsx` | Hero banner, row left border + avatar, timeline activity log, TaskModal custom checkbox |
 | `src/components/Resume.jsx` | Hero banner, styled empty upload zone, analysis section dots, ATS score style |
@@ -205,7 +205,7 @@ Replace the existing logo `<div>` block (the one with `padding: '18px 14px 10px'
     </svg>
   </div>
   <div>
-    <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-main)' }}>TishApply</div>
+    <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-main)' }}>Job Neuron</div>
     <div style={{ fontSize: 10, color: 'var(--text-light)', marginTop: 1 }}>AI Job Search</div>
   </div>
 </div>
@@ -322,7 +322,7 @@ Expected: all tests pass.
 
 ```bash
 git add src/components/Sidebar.jsx
-git commit -m "feat: redesign sidebar — 240px, TishApply branding, icons, section labels, badge counts, user card footer"
+git commit -m "feat: redesign sidebar — 240px, Job Neuron branding, icons, section labels, badge counts, user card footer"
 ```
 
 ---
@@ -628,7 +628,7 @@ with:
 
 (Remember to close the extra `<div>` at the end of the return.)
 
-- [ ] **Step 4: Replace the brand header with TishApply branding**
+- [ ] **Step 4: Replace the brand header with Job Neuron branding**
 
 Replace the existing brand `<div>` (the one with `display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8`):
 
@@ -648,7 +648,7 @@ Replace the existing brand `<div>` (the one with `display: 'flex', alignItems: '
       </svg>
     </div>
     <div>
-      <h1 style={{ fontSize: 20, fontWeight: 700, margin: 0, color: 'var(--text-main)' }}>TishApply</h1>
+      <h1 style={{ fontSize: 20, fontWeight: 700, margin: 0, color: 'var(--text-main)' }}>Job Neuron</h1>
       <div style={{ fontSize: 11, color: 'var(--text-light)', marginTop: 1 }}>AI Job Search</div>
     </div>
   </div>
@@ -688,7 +688,7 @@ Expected: all tests pass.
 
 ```bash
 git add src/components/ProfileSelect.jsx
-git commit -m "feat: ProfileSelect — centered layout, TishApply branding, card hover lift"
+git commit -m "feat: ProfileSelect — centered layout, Job Neuron branding, card hover lift"
 ```
 
 ---

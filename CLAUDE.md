@@ -1,4 +1,4 @@
-# TishApply — AI Agent Steering File
+# Job Neuron — AI Agent Steering File
 
 This file provides context and instructions for AI coding assistants (Claude, Gemini, ChatGPT, etc.) working on this codebase.
 
@@ -6,7 +6,7 @@ This file provides context and instructions for AI coding assistants (Claude, Ge
 
 ## What This Project Is
 
-TishApply is an **invite-only AI-powered job search platform** deployed at `https://tishapply.netlify.app`.
+Job Neuron is an **invite-only AI-powered job search platform** deployed at `https://jobneuron.netlify.app`.
 
 - **Frontend**: Vite + React (no framework), single-page app
 - **Backend**: Netlify Functions (serverless, Node.js)

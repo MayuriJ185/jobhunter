@@ -1,4 +1,4 @@
-# TishApply — Catppuccin Theme Design Spec
+# Job Neuron — Catppuccin Theme Design Spec
 
 **Date:** 2026-03-18
 **Status:** Approved

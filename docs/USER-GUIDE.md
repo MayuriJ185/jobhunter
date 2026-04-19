@@ -1,17 +1,17 @@
-# TishApply User Guide
+# Job Neuron User Guide
 
-Welcome to **TishApply** — your AI-powered job search assistant. This guide walks you through every feature so you can make the most of the platform.
+Welcome to **Job Neuron** — your AI-powered job search assistant. This guide walks you through every feature so you can make the most of the platform.
 
 ---
 
 ## Getting Started
 
-TishApply is **invite-only**. You'll receive an email invitation with a link to set your password. Once logged in, you'll create a profile and begin your job search.
+Job Neuron is **invite-only**. You'll receive an email invitation with a link to set your password. Once logged in, you'll create a profile and begin your job search.
 
 ### First Login
 
 1. Click the invitation link in your email and set a password.
-2. Log in at [tishapply.netlify.app](https://tishapply.netlify.app).
+2. Log in at [Job Neuron.netlify.app](https://Job Neuron.netlify.app).
 3. Create your first profile — give it a name (e.g., "Software Engineer" or "Data Analyst").
 4. A welcome guide will appear showing you the 4 key steps. Click **Get Started** to jump to the Resume page, or **Skip** to explore on your own.
 
@@ -137,7 +137,7 @@ Change the status using the dropdown on each application card.
 
 ### Adding Jobs Manually
 
-Click **+ Add Job** to manually add a job you found outside of TishApply. Enter the job title, company, URL, and any notes.
+Click **+ Add Job** to manually add a job you found outside of Job Neuron. Enter the job title, company, URL, and any notes.
 
 ### Tasks
 
@@ -181,11 +181,11 @@ The Dashboard gives you a quick overview:
 
 ### Daily Job Search
 
-Toggle the automatic daily search on or off. When enabled, TishApply searches for new jobs every morning at 8 AM in your timezone.
+Toggle the automatic daily search on or off. When enabled, Job Neuron searches for new jobs every morning at 8 AM in your timezone.
 
 ### AI Provider
 
-TishApply supports multiple AI providers. The default is Gemini 2.0 Flash. Your admin can switch between Gemini, Claude, OpenAI, or Groq.
+Job Neuron supports multiple AI providers. The default is Gemini 2.0 Flash. Your admin can switch between Gemini, Claude, OpenAI, or Groq.
 
 ### Developer Tools
 

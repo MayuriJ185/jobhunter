@@ -80,7 +80,7 @@ export function ProfileSelect({ onSelect, onLogout, user, forcePicker = false })
               </svg>
             </div>
             <div>
-              <h1 className={s.brandTitle}>TishApply</h1>
+              <h1 className={s.brandTitle}>Job Neuron</h1>
               <div className={s.brandSub}>AI Job Search</div>
             </div>
           </div>

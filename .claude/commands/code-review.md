@@ -38,7 +38,7 @@ Capture the date string.
 Use the Agent tool to dispatch the `code-reviewer` subagent. Pass it the following as the prompt:
 
 ---
-Review the following git diff for the TishApply project.
+Review the following git diff for the Job Neuron project.
 
 **Changed files:**
 [INSERT CHANGED FILE LIST]
@@ -48,7 +48,7 @@ Review the following git diff for the TishApply project.
 [INSERT FULL DIFF]
 </diff>
 
-Apply all seven tiers of the Pragmatic Quality framework with TishApply-specific rules as defined in your instructions. Return the full structured report.
+Apply all seven tiers of the Pragmatic Quality framework with Job Neuron-specific rules as defined in your instructions. Return the full structured report.
 ---
 
 ### Step 5: Write the report

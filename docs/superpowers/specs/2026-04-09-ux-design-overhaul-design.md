@@ -8,7 +8,7 @@
 
 ## Problem Statement
 
-TishApply's current UI has several issues that undermine its professional feel:
+Job Neuron's current UI has several issues that undermine its professional feel:
 
 1. **Galaxy/planet background images** distract from content and add visual noise
 2. **Sidebar navigation** consumes horizontal space on every page, especially problematic on tablets/mobile
@@ -174,7 +174,7 @@ All existing `@keyframes` from `GlobalStyles` move here. New additions:
 **Desktop (>768px):**
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│ [Logo] TishApply    Dashboard  Resume  Jobs  Applications       │
+│ [Logo] Job Neuron    Dashboard  Resume  Jobs  Applications       │
 │                                        Settings  [Profile ▾]    │
 └──────────────────────────────────────────────────────────────────┘
 ```

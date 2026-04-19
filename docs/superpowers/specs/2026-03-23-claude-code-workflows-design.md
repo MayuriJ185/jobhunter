@@ -7,7 +7,7 @@
 
 ## Overview
 
-Adapt three code-quality workflows from the OneRedOak/claude-code-workflows repository as local Claude Code slash commands and subagents. The result is five files in `.claude/commands/` and `.claude/agents/` that give TishApply developers one-command quality gates without any GitHub Actions or external CI dependencies.
+Adapt three code-quality workflows from the OneRedOak/claude-code-workflows repository as local Claude Code slash commands and subagents. The result is five files in `.claude/commands/` and `.claude/agents/` that give Job Neuron developers one-command quality gates without any GitHub Actions or external CI dependencies.
 
 ---
 
@@ -43,7 +43,7 @@ The command prompt instructs Claude to:
 
 1. Run `git diff main...HEAD` using the Bash tool and capture the output as `$DIFF`
 2. Run `git diff main...HEAD --name-only` to capture the changed file list as `$FILES`
-3. Invoke the Agent tool targeting the `code-reviewer` subagent (referenced by name `code-reviewer`) with a payload that embeds `$DIFF`, `$FILES`, and the TishApply context block defined below
+3. Invoke the Agent tool targeting the `code-reviewer` subagent (referenced by name `code-reviewer`) with a payload that embeds `$DIFF`, `$FILES`, and the Job Neuron context block defined below
 4. After the subagent returns, run `mkdir -p docs/reviews` using the Bash tool, then write the subagent's output to `docs/reviews/code-review-YYYY-MM-DD.md` using the Write tool (date is today's date from `date +%Y-%m-%d`)
 5. Print the path of the written file to the user
 
@@ -63,7 +63,7 @@ Receives the diff, file list, and context. Implements the **Pragmatic Quality** 
 | 6 | Test coverage | Changed logic has a corresponding test |
 | 7 | Docs / changelog | User-visible changes documented |
 
-**TishApply-specific rules injected per tier:**
+**Job Neuron-specific rules injected per tier:**
 
 - **Correctness**: KV keys must follow `jh_{entity}_{id?}` convention. The `dev_` prefix must never be manually applied — only `devKeyNs()` in `db.js` may apply it. Profile IDs embedded in KV key suffixes are client-supplied values — verify in context that they are scoped to the authenticated user's own profiles.
 - **Security**: AI keys (`GEMINI_KEY`, `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `GROQ_API_KEY`), `SUPABASE_SERVICE_KEY`, and `SERPAPI_KEY` must never appear in `src/` or in any HTTP response body. Every Netlify function (non-background) must check `context.clientContext.user` before any Supabase call. Background functions (`*-background.js`) must parse the JWT manually from the `Authorization` header — they cannot use `clientContext`. Admin-only endpoints must re-verify the user role server-side.
@@ -119,7 +119,7 @@ Self-contained — no subagent. This is intentional: security analysis is linear
 
 If the diff is empty, print "No changes since main — nothing to review." and stop.
 
-**TishApply attack surface (what to look for):**
+**Job Neuron attack surface (what to look for):**
 
 | Category | Specific Risk |
 |---|---|
@@ -133,7 +133,7 @@ If the diff is empty, print "No changes since main — nothing to review." and s
 | Dependency risk | New packages added to `package.json` — flag for manual CVE check |
 | SerpApi key | `SERPAPI_KEY` appearing anywhere outside `netlify/functions/` |
 
-**TishApply false-positive exclusions (do NOT flag):**
+**Job Neuron false-positive exclusions (do NOT flag):**
 
 - `devKeyNs()` reading `process.env.NETLIFY_DEV` in `db.js` — this is intentional dev/prod isolation, not an environment variable leak
 - Inline React style objects — no XSS risk; they are not parsed as HTML
@@ -173,13 +173,13 @@ The command prompt instructs Claude to:
 3. Invoke the Agent tool targeting the `design-reviewer` subagent with the changed component filenames and the context block below
 4. After the subagent returns, print the path of the written report file to the user
 
-**Prerequisite (must be stated in the command prompt):** The developer must be logged in to TishApply in their browser before running this command. The design-reviewer subagent uses Playwright to navigate the live app and will encounter the Netlify Identity login screen if not authenticated. The subagent should not attempt to log in — if it sees the login screen, it should report "Auth gate encountered — developer must be logged in" and stop.
+**Prerequisite (must be stated in the command prompt):** The developer must be logged in to Job Neuron in their browser before running this command. The design-reviewer subagent uses Playwright to navigate the live app and will encounter the Netlify Identity login screen if not authenticated. The subagent should not attempt to log in — if it sees the login screen, it should report "Auth gate encountered — developer must be logged in" and stop.
 
 ### Subagent (`design-reviewer.md`)
 
 Receives the list of changed component files and uses Playwright MCP tools to navigate the live app at `http://localhost:9000`. Seven phases:
 
-**Phase 0 — Auth check**: Navigate to `http://localhost:9000`. Take a snapshot. If the snapshot shows a login form or "Sign in" button, stop and report: "Auth gate encountered — please log in to TishApply then re-run /design-review."
+**Phase 0 — Auth check**: Navigate to `http://localhost:9000`. Take a snapshot. If the snapshot shows a login form or "Sign in" button, stop and report: "Auth gate encountered — please log in to Job Neuron then re-run /design-review."
 
 **Phase 1 — Baseline**: At 1200px viewport, take a screenshot of the current view. Save as `docs/reviews/screenshots/design-review-YYYY-MM-DD-baseline-1200px.png`. This is the baseline.
 

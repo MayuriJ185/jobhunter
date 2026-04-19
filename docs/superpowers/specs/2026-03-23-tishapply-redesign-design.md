@@ -1,4 +1,4 @@
-# TishApply — Full Visual Redesign
+# Job Neuron — Full Visual Redesign
 
 **Date:** 2026-03-23
 **Status:** Approved
@@ -8,7 +8,7 @@
 
 ## Overview
 
-TishApply is an AI-powered job search platform. This spec covers a full visual redesign inspired by the Starlink aesthetic: dark-first, space-age glassmorphism with animated depth, Space Grotesk typography, and an indigo/violet gradient accent palette. The redesign removes light mode entirely and introduces a space/galaxy full-page background.
+Job Neuron is an AI-powered job search platform. This spec covers a full visual redesign inspired by the Starlink aesthetic: dark-first, space-age glassmorphism with animated depth, Space Grotesk typography, and an indigo/violet gradient accent palette. The redesign removes light mode entirely and introduces a space/galaxy full-page background.
 
 Zero new npm packages are added. Space Grotesk is loaded via Google Fonts CDN. The inline-style + CSS-custom-property architecture of `src/lib/styles.jsx` is preserved and extended.
 
@@ -22,7 +22,7 @@ Zero new npm packages are added. Space Grotesk is loaded via Google Fonts CDN. T
 | Theme | Dark only — remove light mode | Single definitive visual identity; simpler token set |
 | Background | Full-page space/galaxy image | ~7% effective opacity; NASA public domain or Unsplash CC0 |
 | Cards & Panels | Glassmorphism | `rgba(255,255,255,0.05)` + `backdrop-filter:blur(12px)` + subtle white border |
-| Accent | Indigo → Violet gradient | `#6366f1` → `#8b5cf6`; preserves TishApply's purple DNA |
+| Accent | Indigo → Violet gradient | `#6366f1` → `#8b5cf6`; preserves Job Neuron's purple DNA |
 | Typography | Space Grotesk (Google Fonts CDN) | Technical, geometric; Starlink-adjacent; no npm dep |
 | Animations | Full suite | Starfield, slide-up on tab switch, shimmer on card load, glow pulse, count-up on metrics |
 | Dependencies | Zero new npm packages | CDN font link only |
@@ -481,7 +481,7 @@ export const Badge = ({ status }) => {
 ### Structure
 
 ```
-[Logo mark + TishApply wordmark]
+[Logo mark + Job Neuron wordmark]
 [Divider]
 MAIN (section label, 11px uppercase)
   Dashboard

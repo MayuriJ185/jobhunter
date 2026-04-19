@@ -1,4 +1,4 @@
-# TishApply — Premium App Suite Design Spec
+# Job Neuron — Premium App Suite Design Spec
 
 **Date:** 2026-03-22
 **Status:** Approved
@@ -36,7 +36,7 @@ Add `--shadow-md` to both light and dark `:root` blocks:
 ### Brand header
 Replace the current plain icon + "JobHunter AI" text with:
 - Gradient icon box: `linear-gradient(135deg, #8839ef, #7c3aed)`, 34×34px, `borderRadius: 10`, `boxShadow: '0 2px 8px rgba(136,57,239,0.35)'`
-- Primary label: **"TishApply"**, 15px, weight 700
+- Primary label: **"Job Neuron"**, 15px, weight 700
 - Sub-label: **"AI Job Search"**, 10px, `var(--text-light)`
 
 ### Nav section labels
@@ -230,7 +230,7 @@ Change from `margin: '72px auto'` to full-height centered layout:
 Inner container: `maxWidth: 480, width: '100%'`
 
 ### Branding
-- Update "JobHunter AI" → **"TishApply"**
+- Update "JobHunter AI" → **"Job Neuron"**
 - Brand icon box: match Sidebar gradient style (34×34px, `linear-gradient(135deg, #8839ef, #7c3aed)`, `borderRadius: 10`, glow shadow)
 - Add sub-label "AI Job Search" below the name
 
@@ -286,4 +286,4 @@ Modal animation requires adding one `@keyframes modalIn` block to `GlobalStyles`
 | `src/components/Applications.jsx` | Hero banner, row left border + avatar, timeline activity, TaskModal improvements |
 | `src/components/Resume.jsx` | Hero banner, upload zone, analysis section dots, ATS score styling |
 | `src/components/Settings.jsx` | Hero banner, max-width, section dots |
-| `src/components/ProfileSelect.jsx` | Centered layout, TishApply branding, card hover lift |
+| `src/components/ProfileSelect.jsx` | Centered layout, Job Neuron branding, card hover lift |

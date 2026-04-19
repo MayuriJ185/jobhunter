@@ -1,4 +1,4 @@
-# TishApply — Changelog
+# Job Neuron — Changelog
 
 All notable changes to this project are documented here.
 
@@ -155,8 +155,8 @@ All notable changes to this project are documented here.
 ## [2026-03-23] — Claude Code Slash-Command Workflows
 
 ### Added
-- **`/code-review`** — 7-tier Pragmatic Quality code review against TishApply conventions; dispatches `code-reviewer` subagent; output to `docs/reviews/code-review-YYYY-MM-DD.md`
-- **`/security-review`** — OWASP-aligned security review covering TishApply's specific attack surface (JWT auth, KV cross-user access, key exposure, XSS, admin bypass); output to `docs/reviews/security-review-YYYY-MM-DD.md`
+- **`/code-review`** — 7-tier Pragmatic Quality code review against Job Neuron conventions; dispatches `code-reviewer` subagent; output to `docs/reviews/code-review-YYYY-MM-DD.md`
+- **`/security-review`** — OWASP-aligned security review covering Job Neuron's specific attack surface (JWT auth, KV cross-user access, key exposure, XSS, admin bypass); output to `docs/reviews/security-review-YYYY-MM-DD.md`
 - **`/design-review`** — Playwright-based 7-phase visual and UX review (auth check, baseline, per-view screenshots at 3 breakpoints, Catppuccin compliance, responsive layout, interactive states, accessibility); dispatches `design-reviewer` subagent; output to `docs/reviews/design-review-YYYY-MM-DD.md`
 
 ---
@@ -187,14 +187,14 @@ All notable changes to this project are documented here.
 
 ### Added
 - **Premium App Suite visual redesign** — full-app frontend polish across all views:
-  - **Sidebar** — 200 → 240px, gradient purple brand header ("TishApply" + "AI Job Search"), inline SVG icons per nav item, "MAIN" / "ACCOUNT" section dividers, 3px active accent bar, badge counts (today's jobs / open applications), redesigned footer user card (gradient avatar + name + email + side-by-side Switch/Sign out buttons)
+  - **Sidebar** — 200 → 240px, gradient purple brand header ("Job Neuron" + "AI Job Search"), inline SVG icons per nav item, "MAIN" / "ACCOUNT" section dividers, 3px active accent bar, badge counts (today's jobs / open applications), redesigned footer user card (gradient avatar + name + email + side-by-side Switch/Sign out buttons)
   - **Page hero banners** — gradient hero at top of every view (Dashboard: purple, Resume: teal, Find Jobs: blue, Applications: amber, Settings: neutral); each hero shows a contextual chip (open app count, job count, resume status, etc.)
   - **Dashboard** — elevated metric cards with colored left border, accent-colored number, icon badge (top-right), hover lift; quick action rows with emoji prefix and purple-tint hover; due-date chips on task rows (overdue in red)
   - **Jobs** — company avatar initials circle, colored left border per status, hover lift
   - **Applications** — company avatar, colored left border, timeline-style activity log (left border + dot connector), accessible custom checkbox in TaskModal (hidden native input + visual div via `htmlFor`), modal open animation
   - **Resume** — dashed upload zone for empty state, colored dot prefix on analysis section headers, large accented ATS score
   - **Settings** — max-width 480 → 560px, colored dot prefix on section titles
-  - **ProfileSelect** — full-height centered layout, TishApply branding with gradient icon
+  - **ProfileSelect** — full-height centered layout, Job Neuron branding with gradient icon
   - **Design tokens** — added `--shadow-md`, Badge `borderRadius` 6 → 20 (pill shape), `@keyframes modalIn` added to GlobalStyles
 - **Application activity log** — per-application event timeline (phone calls, emails, interviews, etc.) accessible via "Activity" button on each card; status changes are auto-logged
 

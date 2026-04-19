@@ -46,9 +46,9 @@ function WelcomeModal({ onDismiss, onGetStarted }) {
     <div className={s.welcomeOverlay}>
       <div className={s.welcomeModal}>
         <div className={s.welcomeHeader}>
-          <div className={s.welcomeEyebrow}>Welcome to TishApply</div>
+          <div className={s.welcomeEyebrow}>Welcome to Job Neuron</div>
           <div className={s.welcomeTitle}>Your AI-Powered Job Search</div>
-          <div className={s.welcomeSub}>Here is how to get the most out of TishApply in 4 simple steps</div>
+          <div className={s.welcomeSub}>Here is how to get the most out of Job Neuron in 4 simple steps</div>
         </div>
         <div className={s.stepsGrid}>
           {steps.map((step, i) => (

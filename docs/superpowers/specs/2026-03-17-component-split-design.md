@@ -1,4 +1,4 @@
-# Component Split Design — TishApply
+# Component Split Design — Job Neuron
 
 **Date:** 2026-03-17
 **Scope:** Split `src/JobHunterApp.jsx` (1,300 lines, 14 components) into focused files, reorganise tests to match.

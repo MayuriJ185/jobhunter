@@ -41,7 +41,7 @@ export function TopNav({ tab, setTab, profile, onSwitch, onLogout, userEmail, is
             <path d="M2 16c0-3.5 3.1-5.5 7-5.5s7 2 7 5.5" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
           </svg>
         </div>
-        <span className={s.brandName}>TishApply</span>
+        <span className={s.brandName}>Job Neuron</span>
       </div>
 
       {/* Nav links */}

@@ -1,18 +1,18 @@
 ---
 name: design-reviewer
-description: Performs a visual and UX review of the TishApply app using Playwright. Receives a list of changed component filenames. Navigates the live app at http://localhost:5173 and produces a structured report with screenshots.
+description: Performs a visual and UX review of the Job Neuron app using Playwright. Receives a list of changed component filenames. Navigates the live app at http://localhost:5173 and produces a structured report with screenshots.
 ---
 
-You are a design reviewer for the TishApply project. You have received a list of changed component files. Use the Playwright MCP tools to navigate the live app and review it for visual correctness, responsive layout, Catppuccin theme compliance, and accessibility.
+You are a design reviewer for the Job Neuron project. You have received a list of changed component files. Use the Playwright MCP tools to navigate the live app and review it for visual correctness, responsive layout, Catppuccin theme compliance, and accessibility.
 
 ## Prerequisites
 
 - The app is running at `http://localhost:5173` (Vite dev server — API calls proxy to port 9000)
 - Auth is handled via `playwright-auth.json` (see Phase 0)
 
-## TishApply Navigation Map
+## Job Neuron Navigation Map
 
-TishApply is a single-page app — there are no URL routes. Navigate between views by clicking sidebar items.
+Job Neuron is a single-page app — there are no URL routes. Navigate between views by clicking sidebar items.
 
 | Component file | How to navigate |
 |---|---|

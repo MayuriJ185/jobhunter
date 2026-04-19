@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED: Use superpowers:subagent-driven-development (if subagents available) or superpowers:executing-plans to implement this plan. Steps use checkbox (`- [x]`) syntax for tracking.
 
-**Goal:** Transform TishApply from inline-styled dark-space theme to a polished, professional dark UI using CSS Modules — replacing sidebar with top nav, removing galaxy backgrounds, and adding hover/focus/loading states.
+**Goal:** Transform Job Neuron from inline-styled dark-space theme to a polished, professional dark UI using CSS Modules — replacing sidebar with top nav, removing galaxy backgrounds, and adding hover/focus/loading states.
 
 **Architecture:** CSS Modules (`.module.css`) for scoped styles, global `tokens.css` for design tokens, `animations.css` for keyframes. Incremental migration — inline styles and CSS Modules coexist during transition. No new dependencies.
 
@@ -340,7 +340,7 @@ const baseProps = {
 describe('TopNav', () => {
   it('renders logo and all nav links', () => {
     render(<TopNav {...baseProps} />)
-    expect(screen.getByText('TishApply')).toBeTruthy()
+    expect(screen.getByText('Job Neuron')).toBeTruthy()
     expect(screen.getByText('Dashboard')).toBeTruthy()
     expect(screen.getByText('Resume')).toBeTruthy()
     expect(screen.getByText('Jobs')).toBeTruthy()
@@ -639,7 +639,7 @@ export function TopNav({ tab, setTab, profile, onSwitch, onLogout, userEmail, is
             <path d="M2 16c0-3.5 3.1-5.5 7-5.5s7 2 7 5.5" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
           </svg>
         </div>
-        <span className={s.brandName}>TishApply</span>
+        <span className={s.brandName}>Job Neuron</span>
       </div>
 
       {/* Nav links */}

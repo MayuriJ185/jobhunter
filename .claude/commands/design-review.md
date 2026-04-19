@@ -1,8 +1,8 @@
 # /design-review
 
-Run a visual and UX review of the TishApply app using Playwright. Reviews responsive layout, Catppuccin theme compliance, and accessibility for all components changed since `main`.
+Run a visual and UX review of the Job Neuron app using Playwright. Reviews responsive layout, Catppuccin theme compliance, and accessibility for all components changed since `main`.
 
-**Prerequisite:** The dev server must be running (`npm run dev`) and you must be logged in to TishApply in the browser before running this command.
+**Prerequisite:** The dev server must be running (`npm run dev`) and you must be logged in to Job Neuron in the browser before running this command.
 
 ## Instructions
 
@@ -36,7 +36,7 @@ date +%Y-%m-%d
 Use the Agent tool to dispatch the `design-reviewer` subagent. Pass it the following as the prompt:
 
 ---
-Review the TishApply app running at http://localhost:9000.
+Review the Job Neuron app running at http://localhost:9000.
 
 **Today's date:** [INSERT DATE]
 

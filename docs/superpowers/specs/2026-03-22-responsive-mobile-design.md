@@ -8,7 +8,7 @@
 
 ## Goal
 
-Make TishApply fully usable on phones (≤ 480px) and tablets (481–768px) without changing the desktop experience. Target both screen sizes with distinct layouts that respect available screen real estate.
+Make Job Neuron fully usable on phones (≤ 480px) and tablets (481–768px) without changing the desktop experience. Target both screen sizes with distinct layouts that respect available screen real estate.
 
 ---
 

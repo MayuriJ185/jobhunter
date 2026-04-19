@@ -1,6 +1,6 @@
 # /security-review
 
-Run an OWASP-aligned security review on all changes since `main`, focused on TishApply's specific attack surface.
+Run an OWASP-aligned security review on all changes since `main`, focused on Job Neuron's specific attack surface.
 
 ## Instructions
 
@@ -24,7 +24,7 @@ date +%Y-%m-%d
 
 ### Step 3: Run the security analysis
 
-Analyse the diff against the TishApply attack surface below. Work through each category. Be precise — cite the exact file and line where a finding occurs.
+Analyse the diff against the Job Neuron attack surface below. Work through each category. Be precise — cite the exact file and line where a finding occurs.
 
 #### Attack Surface
 

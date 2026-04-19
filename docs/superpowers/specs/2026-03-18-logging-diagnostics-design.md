@@ -8,7 +8,7 @@
 
 ## Problem
 
-Debugging multi-step operations in TishApply is difficult because:
+Debugging multi-step operations in Job Neuron is difficult because:
 - Log statements are unstructured strings scattered across 13 function files
 - No correlation between a frontend API call and its backend execution
 - No way to follow a single operation (e.g. job search → AI scoring → save) through the logs

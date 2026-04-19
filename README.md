@@ -1,8 +1,8 @@
-# TishApply — AI-Powered Job Search Platform
+# Job Neuron — AI-Powered Job Search Platform
 
 An invite-only AI-powered job search platform. Analyzes your resume, finds real matching jobs every day from LinkedIn, Indeed, Glassdoor and more, generates tailored cover letters per job, and tracks your entire application pipeline.
 
-**Live at:** `https://tishapply.netlify.app`
+**Live at:** `https://jobneuron.netlify.app`
 **Repo:** `https://github.com/jadhavnikhil78/jobhunter-ai`
 
 ---

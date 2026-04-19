@@ -59,7 +59,7 @@ export default function App() {
       ni().on('init', onInit)
       ni().on('login', onLogin)
       ni().on('logout', onLogout)
-      ni().init({ APIUrl: 'https://tishapply.netlify.app/.netlify/identity' })
+      ni().init({ APIUrl: 'https://jobneuron.netlify.app/.netlify/identity' })
     }
 
     if (ni()) {
@@ -137,7 +137,7 @@ function Logo() {
       <div style={{ width: 34, height: 34, background: 'linear-gradient(135deg, #8839ef, #7c3aed)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 8px rgba(136,57,239,0.35)' }}>
         <svg width="18" height="18" viewBox="0 0 18 18" fill="white"><circle cx="9" cy="6.5" r="3.5"/><path d="M2 16c0-3.5 3.1-5.5 7-5.5s7 2 7 5.5" stroke="white" strokeWidth="1.5" fill="none" strokeLinecap="round"/></svg>
       </div>
-      <span style={{ fontSize: 18, fontWeight: 700, color: 'var(--text-main)' }}>TishApply</span>
+      <span style={{ fontSize: 18, fontWeight: 700, color: 'var(--text-main)' }}>Job Neuron</span>
     </div>
   )
 }
